@@ -194,3 +194,6 @@ if __name__ == '__main__':
     tree = BST ()
     tree.createSampleTree1()
     tree.prettyPrint()
+'''https://github.com/Bibeknam/algorithmtutorprograms/blob/master/data-structures/binary-search-trees/BST.py''' 
+'''https://github.com/OmkarPathak/Data-Structures-using-Python/blob/master/Trees/BinarySearchTree.py'''
+'''
