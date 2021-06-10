@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu May 27 14:19:53 2021
-
-@author: user
-"""
 class Node(object):
     def __init__(self, data):
         self.data = data
@@ -11,12 +5,10 @@ class Node(object):
         self.right = None
 
     def insertTree(self, data):
-        # For inserting the data in the Tree 
         if self.data == data:
-            return False        #As BST cannot contain duplicate data
+            return False        
 
-        elif data < self.data:
-            # Data less than the root data is placed to the left of the root 
+        elif data < self.data: 
             if self.left:
                 return self.left.insertTree(data)
             else:
@@ -24,7 +16,6 @@ class Node(object):
                 return True
 
         else:
-            # Data greater than the root data is placed to the right of the root 
             if self.right:
                 return self.right.insertTree(data)
             else:
@@ -34,7 +25,6 @@ class Node(object):
     def minValueNode(self, node):
         current = node
 
-        # loop down to find the leftmost leaf
         while(current.left != None):
             current = current.left
 
@@ -43,24 +33,20 @@ class Node(object):
     def maxValueNode(self, node):
         current = node
 
-        # loop down to find the leftmost leaf
         while(current.right != None):
             current = current.right
 
         return current
 
-    def removeTree(self, data,root):
-        # For removing the node 
+    def removeTree(self, data,root): 
         if self == None:
             return None
 
-        # if current node's data is less than that of root node, then only search in left subtree else right subtree
         if data < self.data:
             self.left = self.left.removeTree(data,root)
         elif data > self.data:
             self.right = self.right.removeTree(data,root)
         else:
-            # removing node with one child
             if self.left == None:
 
                 if self == root:
@@ -82,16 +68,13 @@ class Node(object):
                 
                 return temp
 
-            # deleting node with two children
-            # first get the inorder successor
             temp = self.minValueNode(self.right)
             self.data = temp.data
             self.right = self.right.removeTree(temp.data,root)
 
         return self
 
-    def findTree(self, data):
-        # This function checks whether the specified data is in tree or not 
+    def findTree(self, data): 
         if(data == self.data):
             print ("this number is in the tree")
         elif(data < self.data):
@@ -106,7 +89,6 @@ class Node(object):
                 print ("this number is not in the tree")
 
     def preorder(self):
-        # For preorder traversal of the BST 
         if self:
             print(str(self.data), end = ' ')
             if self.left:
@@ -115,7 +97,6 @@ class Node(object):
                 self.right.preorder()
 	
     def inorder(self):
-        # For Inorder traversal of the BST 
         if self:
             if self.left:
                 self.left.inorder()
@@ -124,7 +105,6 @@ class Node(object):
                 self.right.inorder()
 
     def postorder(self):
-        # For postorder traversal of the BST 
         if self:
             if self.left:
                 self.left.postorder()
