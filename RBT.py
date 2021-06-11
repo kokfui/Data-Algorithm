@@ -6,7 +6,7 @@ class Node():
         self.parent = None 
         self.left = None 
         self.right = None 
-        self.color = 
+        self.color = None
 
 
 class RedBlackTree():
