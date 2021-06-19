@@ -12,6 +12,9 @@ def insert(array, key, arraySize):
         for n in range(len(array)):
             if (hashIndex(key, arraySize))+n >= len(array):
                 n = n - len(array)
+                if array[n] == None:
+                    array[n] = key
+                    break
             if array[hashIndex(key, arraySize)+n] == None:
                 array[hashIndex(key, arraySize)+n] = key
                 break
@@ -28,6 +31,7 @@ insert(array, 11, arraySize)
 insert(array, 12, arraySize)
 insert(array, 3, arraySize)
 insert(array, 16, arraySize)
+insert(array, 4, arraySize)
 print(array)
 delete(array,6)
 print(array)
