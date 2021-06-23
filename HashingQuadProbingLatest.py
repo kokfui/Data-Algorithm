@@ -10,16 +10,12 @@ def insert(array, key, arraySize):
         array[hashIndex(key, arraySize)] = key
     else:
         for n in range(len(array)):
-            quad=n^2
-            if (hashIndex(key, arraySize))+quad >= 2*(len(array)):
-                quad = quad - 2*(len(array))
-                if array[quad] == None:
-                    array[quad] = key
-                    break
+            quad=(n+1)^2
             if (hashIndex(key, arraySize))+quad >= len(array):
-                quad = quad - len(array)
-                if array[quad] == None:
-                    array[quad] = key
+                value = (hashIndex(key, arraySize) + quad) / len(array)
+                y = (hashIndex(key, arraySize)+quad) - int(value*(len(array)))
+                if array[y] == None:
+                    array[y] = key
                     break
             if array[hashIndex(key, arraySize)+quad] == None:
                 array[hashIndex(key, arraySize)+quad] = key
